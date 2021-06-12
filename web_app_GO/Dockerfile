@@ -9,6 +9,8 @@ COPY . /go/src/app
 #  defines the working directory within the container
 WORKDIR /go/src/app
 # run commands within the container. 
+#RUN go mod init
+# if module file wasn't there before 
 #RUN go build -o ./main.go
 EXPOSE 6111   
 ## go port we don't have to bind ports between host and container 
