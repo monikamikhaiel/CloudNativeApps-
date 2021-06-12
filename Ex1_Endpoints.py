@@ -1,12 +1,13 @@
-from flask import Flask, app, json, jsonify, request
+from flask import Flask, json, jsonify, request
 from werkzeug.wrappers import response
 ##Multiple route example routes= enpoints
 app1 = Flask(__name__)
 
-
+ ## Data displayed into routes 
 STATUS={"user": "admin","result": "OK - healthy"}
 DATA={"user": "admin","data": {"UserCount": 140, "UserCountActive": 23}}
 
+##routes 
 @app1.route("/") # main route 
 def hello():
     return "hello world"
@@ -27,3 +28,4 @@ def metrics():
 
 if __name__ == "__main__":
     app1.run(host='0.0.0.0')
+    app1.debug=True

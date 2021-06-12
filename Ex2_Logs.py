@@ -1,4 +1,4 @@
-from flask import Flask, app, json, jsonify, request
+from flask import Flask, json, jsonify
 import logging
 import datetime 
 ##the timestamp 
@@ -12,13 +12,15 @@ logging.basicConfig(filename='app.log',encoding='utf-8', level=logging.DEBUG
 ##Multiple route example routes= enpoints
 app1 = Flask(__name__)
 
-
+## data 
 STATUS={"user": "admin","result": "OK - healthy"}
 DATA={"user": "admin","data": {"UserCount": 140, "UserCountActive": 23}}
 
+
+## creating routes 
 @app1.route("/") # main route 
 def hello():
-    message= TimeStamp +","+ "main route "+ "endpoint was reached"
+    #message= TimeStamp +","+ "main route "+ "endpoint was reached"
     logging.debug("main route ")
     return "hello world"
 
@@ -31,16 +33,17 @@ def status():
 @app1.route('/status1')
 def status1():
     return jsonify(STATUS)
+
 @app1.route('/metrics')
 def metrics():
     response=app1.response_class(response=json.dumps(DATA),
                                 status=200,
                                 mimetype='application/json')
-    message= TimeStamp +","+ "metrics route  "+ "endpoint was reached"
+    #message= TimeStamp +","+ "metrics route  "+ "endpoint was reached"
     logging.debug("metrics route  ")
     return response
 
 if __name__ == "__main__":
     app1.run(host='0.0.0.0')
-    app1.run(debug=True)
+    app1.debug=True ## to make it run once 
     
