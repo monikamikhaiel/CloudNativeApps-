@@ -1,0 +1,7 @@
+on windows 
+install from the website  https://golang.org/doc/install
+set environment variable >setx GO111MODULE=auto (on powershell)
+reboot 
+check by typing >go env
+on ubuntu 
+https://www.educative.io/edpresso/how-to-install-go-on-ubuntu 
