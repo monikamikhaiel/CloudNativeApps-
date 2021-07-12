@@ -4,3 +4,4 @@ Flask==2.0.1
 Werkzeug==2.0.1
  ## in our case no need for those files since we have created a virtrual environments 
  ## no need to install logging and datetime  because they are a part of python default libraries
+pytest==6.1.2
