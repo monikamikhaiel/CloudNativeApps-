@@ -10,7 +10,12 @@ jobs:
   #  with:
    #       linux-version: ${{matrix.linux-version}}
    runs-on: ubuntu-latest 
-    steps:
+   steps:
+      -
+      # this step is used to reference the code in the current repository 
+        name: checkout 
+        uses: actions/checkout@v2
+   
       -
         name: Set up QEMU
         uses: docker/setup-qemu-action@v1
@@ -28,6 +33,9 @@ jobs:
         id: docker_build
         uses: docker/build-push-action@v2
         with:
+          context: ./web_app_flask/
+          file: ./web_app_flask/Dockerfile
+          platform: linux/amd64 
           push: true
           tags: monikamikhaiel/python-helloworld:latest
       -
