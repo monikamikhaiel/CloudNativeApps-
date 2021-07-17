@@ -6,9 +6,10 @@ jobs:
 #    strategy:
 #       matrix:
 #        linux-version: [linux/amd64,linux/arm64]
-    runs-on: linux/amd64,linux/arm64
+ #   runs-on: linux/amd64,linux/arm64
   #  with:
    #       linux-version: ${{matrix.linux-version}}
+   runs-on: ubuntu-latest 
     steps:
       -
         name: Set up QEMU
